@@ -20,6 +20,8 @@ builder.Services.AddScoped<IPlayerService, PlayerService>();
 // Register ITournamentService and TournamentService
 builder.Services.AddScoped<ITournamentService, TournamentService>();
 
+builder.Services.AddScoped<IMatchResultService, MatchResultService>();
+
 // Add API controllers
 builder.Services.AddControllers();
 

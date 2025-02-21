@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ArenaPro1.DTOs.MatchResultDTO>
+
+@{
+    ViewData["Title"] = "Match Results";
+}
+
+<h1>Match Results</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tournament</th>
+            <th>Player</th>
+            <th>Score</th>
+            <th>Rank</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var matchResult in Model)
+        {
+            <tr>
+                <td>@matchResult.TournamentName</td>
+                <td>@matchResult.PlayerName</td>
+                <td>@matchResult.Score</td>
+                <td>@matchResult.Rank</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@matchResult.ResultId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@matchResult.ResultId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@matchResult.ResultId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
