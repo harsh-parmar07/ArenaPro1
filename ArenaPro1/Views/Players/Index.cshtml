@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ArenaPro1.DTOs.PlayerDTO>
+
+@{
+    ViewData["Title"] = "Players";
+}
+
+<h1>Players</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model)
+        {
+                <tr>
+                    <td>@player.Name</td>
+                    <td>@player.Email</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@player.PlayerId" class="btn btn-info">Details</a>
+                        <a asp-action="Edit" asp-route-id="@player.PlayerId" class="btn btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@player.PlayerId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
