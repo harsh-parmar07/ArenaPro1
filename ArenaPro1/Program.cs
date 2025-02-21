@@ -17,6 +17,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 // Register IPlayerService and PlayerService
 builder.Services.AddScoped<IPlayerService, PlayerService>();
 
+// Register ITournamentService and TournamentService
+builder.Services.AddScoped<ITournamentService, TournamentService>();
+
 // Add API controllers
 builder.Services.AddControllers();
 
